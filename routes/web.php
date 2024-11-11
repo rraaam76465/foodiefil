@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware('auth')->get('/my-account', [AccountController::class, 'index'])->name('account.index');
-Route::middleware('auth')->get('/account', [UserController::class, 'showAccount'])->name('account');
+Route::middleware('auth')->get('/account/edit', [AccountController::class, 'edit'])->name('account.edit');
+Route::middleware('auth')->put('/account/update', [AccountController::class, 'update'])->name('account.update');
 
 Route::get('/', function () {
     return view('home');

@@ -28,14 +28,21 @@
                 </li>
                 <li class="nav-item mr-3"><a class="nav-link" href="#">Browse</a></li>
 
+                @guest
+                    <li class="nav-item mr-3"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
+                @endguest
+
+                @auth
+                    <li class="nav-item mr-3"><a class="nav-link" href="{{ route('account.index') }}">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+                @endauth
+
                 <!-- Search Form -->
                 <form class="form-inline my-2 my-lg-0 mr-3" method="GET" action="{{ route('search') }}">
                     <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-
-                <li class="nav-item mr-3"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
             </ul>
         </div>
     </nav>

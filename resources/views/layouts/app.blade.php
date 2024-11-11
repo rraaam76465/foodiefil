@@ -10,16 +10,16 @@
 <body>
     
     <!-- Navbar -->
-    @include('partials.navbar')
-
+    @include('profile.partials.navbar')
+    
     <!-- Main content -->
     <div class="container my-5">
         @yield('content')
     </div>
-
+    
     <!-- Modals -->
-    @include('partials.login_modal')
-    @include('partials.register_modal')
+    @include('profile.partials.login_modal')
+    @include('profile.partials.register_modal')
     
     <div class="container text-center">
         @guest
