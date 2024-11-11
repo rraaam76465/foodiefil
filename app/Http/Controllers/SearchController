@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class SearchController extends Controller
+{
+    public function index(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Perform search logic, e.g., search the database
+        // Example: $results = Model::where('name', 'LIKE', "%$query%")->get();
+
+        // Return a view with results (e.g., 'search.results' view)
+        return view('search.results', compact('query')); // Add 'results' if you have search data.
+    }
+}
