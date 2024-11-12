@@ -38,7 +38,6 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
                 @endauth
 
-                <!-- Search Form -->
                 <form class="form-inline my-2 my-lg-0 mr-3" method="GET" action="{{ route('search') }}">
                     <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search" required>
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -47,7 +46,6 @@
         </div>
     </nav>
 
-    <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -75,7 +73,6 @@
         </div>
     </div>
 
-    <!-- Register Modal -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

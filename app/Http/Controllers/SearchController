@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
     public function index(Request $request)
     {
-        $query = $request->input('query');
+        $query = $request->input('query'); // Get the search query
 
-        // Perform search logic, e.g., search the database
-        // Example: $results = Model::where('name', 'LIKE', "%$query%")->get();
+        // If query is provided, search for foods
+        if ($query) {
+            $foods = Food::where('name', 'like', '%' . $query . '%')
+                         ->orWhere('description', 'like', '%' . $query . '%')
+                         ->get();
+        } else {
+            $foods = Food::all(); // Return all foods if no query is given
+        }
 
-        // Return a view with results (e.g., 'search.results' view)
-        return view('search.results', compact('query')); // Add 'results' if you have search data.
+        return view('search_results', compact('foods', 'query'));
     }
 }

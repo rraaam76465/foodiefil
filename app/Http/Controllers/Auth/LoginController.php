@@ -25,7 +25,10 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ], $request->remember)) {
-            return redirect()->intended('/dashboard');
+            // Flash a success message to the session after login
+            session()->flash('success', 'Login successful! Welcome back.');
+
+            return redirect()->intended(route('dashboard'));
         }
 
         return back()->withErrors([
@@ -36,6 +39,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect()->route('home');
     }
 }
